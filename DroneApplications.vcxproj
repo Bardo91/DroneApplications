@@ -11,23 +11,15 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\core\Controller.cpp" />
-    <ClCompile Include="src\core\DroneApplication.cpp" />
-    <ClCompile Include="src\implementations\controllers\ArdroneController.cpp" />
-    <ClCompile Include="src\implementations\controllers\OctoArcasController.cpp" />
+    <ClCompile Include="src\Controller.cpp" />
+    <ClCompile Include="src\DroneApplication.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\core\Controller.h" />
-    <ClInclude Include="src\core\DroneApplication.h" />
-    <ClInclude Include="src\core\Message.h" />
-    <ClInclude Include="src\core\SensorManager.h" />
-    <ClInclude Include="src\core\Task.h" />
-    <ClInclude Include="src\implementations\controllers\ArdroneController.h" />
-    <ClInclude Include="src\implementations\controllers\OctoArcasController.h" />
-    <ClInclude Include="src\implementations\controllers\TestBedController.h" />
-    <ClInclude Include="src\implementations\sensors\OpencvCameraSensor.h" />
-    <ClInclude Include="src\implementations\sensors\OpencvImageFileSensor.h" />
-    <ClInclude Include="src\implementations\sensors\OpencvVideoSensor.h" />
+    <ClInclude Include="src\Controller.h" />
+    <ClInclude Include="src\DroneApplication.h" />
+    <ClInclude Include="src\Message.h" />
+    <ClInclude Include="src\SensorManager.h" />
+    <ClInclude Include="src\Task.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{026E23C1-2F86-43CD-825D-D43E7351D0E8}</ProjectGuid>
@@ -35,7 +27,7 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v120</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
