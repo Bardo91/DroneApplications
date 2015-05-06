@@ -1,9 +1,0 @@
-﻿Build started 05/05/2015 21:19:42.
-     1>Project "C:\programming\ec-safemobil\lib\DroneApplications\DroneApplications.vcxproj" on node 2 (Build target(s)).
-     1>Lib:
-         DroneApplications.vcxproj -> C:\programming\ec-safemobil\Quadrotor applications\CatecWhiteCar\Debug\DroneApplications.lib
-     1>Done Building Project "C:\programming\ec-safemobil\lib\DroneApplications\DroneApplications.vcxproj" (Build target(s)).
-
-Build succeeded.
-
-Time Elapsed 00:00:00.04
