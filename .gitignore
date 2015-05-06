@@ -33,5 +33,5 @@
 
 # UserConfig
 *.suo
-/Debug/DroneApp.026E23C1.tlog/*.tlog
 /Release
+/Debug
