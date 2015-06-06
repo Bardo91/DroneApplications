@@ -12,12 +12,14 @@
 #ifndef TASK_H_
 #define TASK_H_
 
-#include "DroneApplication.h"
+
 #include "Message.h"
 #include "SensorManager.h"
 
 #include <queue>
 #include <thread>
+
+class DroneApplication;	// Forward declaration
 
 class TaskBase{
 public:
