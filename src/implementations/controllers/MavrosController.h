@@ -10,7 +10,7 @@
 #ifndef BARTASK_CONTROLLERS_MAVROS_CONTROLLER_H_
 #define BARTASK_CONTROLLERS_MAVROS_CONTROLLER_H_
 
-#include "../drone_application/Controller.h"
+#include "../../Controller.h"
 
 class MavrosController :public Controller {
 public:		// Public Interface

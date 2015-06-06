@@ -10,7 +10,7 @@
 #ifndef OCTO_ARCAS_CONTROLLER_H_
 #define OCTO_ARCAS_CONTROLLER_H_
 
-#include "../drone_application/Controller.h"
+#include "../../Controller.h"
 #include <core/comm/Socket.h>
 
 //---------------------------------------------------------------------------------------------------------------------

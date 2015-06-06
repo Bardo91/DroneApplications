@@ -59,7 +59,7 @@ void OctoArcasController::parseAction(const Message& _message){
 		char *raw = new char[sizeof(outMsg)];
 		memcpy(raw, &outMsg, sizeof(outMsg));
 
-		mOctoSocket->sendMsg(std::string(raw, sizeof(outMsg)));
+		mOctoSocket->sendMsg((unsigned char*) raw, sizeof(outMsg));
 	}
 	default:
 		std::cout << "Unknow message type" << std::endl;
