@@ -13,6 +13,15 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\implementations">
+      <UniqueIdentifier>{a9215464-8551-498e-b646-f1215a253d82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\implementations\controllers">
+      <UniqueIdentifier>{17bb9023-13c6-45d2-8b37-5e23464a503c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\implementations\sensors">
+      <UniqueIdentifier>{4a7261f2-77bc-4af6-933d-10c2352cfa01}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Controller.cpp">
@@ -20,6 +29,15 @@
     </ClCompile>
     <ClCompile Include="src\DroneApplication.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\implementations\controllers\ArdroneController.cpp">
+      <Filter>Source Files\implementations\controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\implementations\controllers\MavrosController.cpp">
+      <Filter>Source Files\implementations\controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\implementations\controllers\OctoArcasController.cpp">
+      <Filter>Source Files\implementations\controllers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -37,6 +55,33 @@
     </ClInclude>
     <ClInclude Include="src\Task.h">
       <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\implementations\controllers\ArdroneController.h">
+      <Filter>Source Files\implementations\controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\implementations\controllers\MavrosController.h">
+      <Filter>Source Files\implementations\controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\implementations\controllers\OctoArcasController.h">
+      <Filter>Source Files\implementations\controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\implementations\controllers\TestBedController.h">
+      <Filter>Source Files\implementations\controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\implementations\sensors\ImuSimulatorSensor.h">
+      <Filter>Source Files\implementations\sensors</Filter>
+    </ClInclude>
+    <ClInclude Include="src\implementations\sensors\OpencvCameraSensor.h">
+      <Filter>Source Files\implementations\sensors</Filter>
+    </ClInclude>
+    <ClInclude Include="src\implementations\sensors\OpencvImageFileSensor.h">
+      <Filter>Source Files\implementations\sensors</Filter>
+    </ClInclude>
+    <ClInclude Include="src\implementations\sensors\OpencvSensor.h">
+      <Filter>Source Files\implementations\sensors</Filter>
+    </ClInclude>
+    <ClInclude Include="src\implementations\sensors\OpencvVideoSensor.h">
+      <Filter>Source Files\implementations\sensors</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -13,10 +13,22 @@
   <ItemGroup>
     <ClCompile Include="src\Controller.cpp" />
     <ClCompile Include="src\DroneApplication.cpp" />
+    <ClCompile Include="src\implementations\controllers\ArdroneController.cpp" />
+    <ClCompile Include="src\implementations\controllers\MavrosController.cpp" />
+    <ClCompile Include="src\implementations\controllers\OctoArcasController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Controller.h" />
     <ClInclude Include="src\DroneApplication.h" />
+    <ClInclude Include="src\implementations\controllers\ArdroneController.h" />
+    <ClInclude Include="src\implementations\controllers\MavrosController.h" />
+    <ClInclude Include="src\implementations\controllers\OctoArcasController.h" />
+    <ClInclude Include="src\implementations\controllers\TestBedController.h" />
+    <ClInclude Include="src\implementations\sensors\ImuSimulatorSensor.h" />
+    <ClInclude Include="src\implementations\sensors\OpencvCameraSensor.h" />
+    <ClInclude Include="src\implementations\sensors\OpencvImageFileSensor.h" />
+    <ClInclude Include="src\implementations\sensors\OpencvSensor.h" />
+    <ClInclude Include="src\implementations\sensors\OpencvVideoSensor.h" />
     <ClInclude Include="src\Message.h" />
     <ClInclude Include="src\SensorManager.h" />
     <ClInclude Include="src\Task.h" />
