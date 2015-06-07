@@ -25,6 +25,7 @@
     <ClInclude Include="src\implementations\controllers\MavrosController.h" />
     <ClInclude Include="src\implementations\controllers\OctoArcasController.h" />
     <ClInclude Include="src\implementations\controllers\TestBedController.h" />
+    <ClInclude Include="src\implementations\sensors\ImuSensor.h" />
     <ClInclude Include="src\implementations\sensors\ImuSimulatorSensor.h" />
     <ClInclude Include="src\implementations\sensors\MavrosSensor.h" />
     <ClInclude Include="src\implementations\sensors\OpencvCameraSensor.h" />
@@ -67,7 +68,7 @@
     <IncludePath>C:\programming\ARdrone-pp\src;$(BOVIL_DIR)/source;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\programming\ARdrone-pp\src;$(BOVIL_DIR)/source;$(IncludePath)</IncludePath>
+    <IncludePath>C:\programming\ARdrone-pp\src;$(BOVIL_DIR)/source;$(OPENCV_DIR)/include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

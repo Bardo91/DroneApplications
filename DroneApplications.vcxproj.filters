@@ -89,5 +89,8 @@
     <ClInclude Include="src\implementations\sensors\MavrosSensor.h">
       <Filter>Source Files\implementations\sensors</Filter>
     </ClInclude>
+    <ClInclude Include="src\implementations\sensors\ImuSensor.h">
+      <Filter>Source Files\implementations\sensors</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
