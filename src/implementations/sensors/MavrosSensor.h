@@ -14,7 +14,9 @@
 
 #if defined(_HAS_ROS_LIBRARIES)
 	#include <ros/ros.h>	// 666 Check includes
-	#include <c:/programming/safemobil_ws/sandbox/libs/grvc_catec/external_libs/rosCatec/include/catec_msgs/UALStateStamped.h>
+	#include <sensor_msgs/Imu.h>
+	#include <sensor_msgs/NavSatFix.h>
+	#include <std_msgs/Float64>
 #endif
 
 #include <array>
@@ -27,16 +29,18 @@ public:		//	 Public interface
 
 	ImuData get();
 
-#if defined(_HAS_ROS_LIBRARIES)
-private:	// Private methods
-	void topicReaderCallback(const catec_msgs::UALStateStamped &_message);	// Check message type.
+	#if defined(_HAS_ROS_LIBRARIES)
+	private:	// Private methods
+		void imuCallback		(const sensor_msgs::Imu::ConstPtr& _msg);
+		void positionCallback	(const sensor_msgs::NavSatFix::ConstPtr& _msg);
+		void altitudeCallback	(const std_msgs::Float64::ConstPtr& _msg);
 
-private:	// Members
-	std::mutex	mSecureMutex;
-	ImuData		mLastData;
+	private:	// Members
+		std::mutex	mSecureMutex;
+		ImuData		mLastData;
 
-	ros::Subscriber mTopicReader;
-#endif
+		ros::Subscriber mAltitudeSubscription, mImuSubscription, mPositionSubscription;
+	#endif
 };
 
 
