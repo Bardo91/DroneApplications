@@ -21,13 +21,13 @@
 
 class DroneApplication;	// Forward declaration
 
-/**	Base task class that define asynchronous task interface
+/**	Base task class that define asynchronous task interface. Never used directly, used to 
+	*	store tasks multiple types tasks in maps or arrays
 *
 */
 class TaskBase{
 public:
-	/** \brief Queue new message to drone's controller queue (777 need revision). Never used directly, used to 
-	*	store tasks multiple types tasks in maps or arrays
+	/** \brief Queue new message to drone's controller queue (777 need revision). 
 	*/
 	void	queueMessage	(Message _message)	{ mDroneQueue->push(_message); };
 
@@ -46,8 +46,7 @@ private:
 	SensorManager	*mSensorManager;
 };
 
-/** Task interface that implements thread of asyncronous tasks. This class is extended with whole task 
-*	definition. 777 Add example.
+/** Task interface that implements the thread of the asyncronous tasks. 777 Add example.
 *
 */
 template<typename SonClass_>
