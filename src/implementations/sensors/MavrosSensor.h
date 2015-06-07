@@ -10,10 +10,12 @@
 #ifndef BARTASK_SENSORS_MAVROS_SENSOR_H_
 #define BARTASK_SENSORS_MAVROS_SENSOR_H_
 
-#include "../drone_application/SensorManager.h"
+#include "../../SensorManager.h"
 
-#include <ros/ros.h>	// 666 Check includes
-#include <c:/programming/safemobil_ws/sandbox/libs/grvc_catec/external_libs/rosCatec/include/catec_msgs/UALStateStamped.h>
+#if defined(_HAS_ROS_LIBRARIES)
+	#include <ros/ros.h>	// 666 Check includes
+	#include <c:/programming/safemobil_ws/sandbox/libs/grvc_catec/external_libs/rosCatec/include/catec_msgs/UALStateStamped.h>
+#endif
 
 #include <array>
 #include <thread>
@@ -32,6 +34,7 @@ public:		//	 Public interface
 
 	ImuData get();
 
+#if defined(_HAS_ROS_LIBRARIES)
 private:	// Private methods
 	void topicReaderCallback(const catec_msgs::UALStateStamped &_message);	// Check message type.
 
@@ -40,6 +43,7 @@ private:	// Members
 	ImuData		mLastData;
 
 	ros::Subscriber mTopicReader;
+#endif
 };
 
 

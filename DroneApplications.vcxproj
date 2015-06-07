@@ -16,6 +16,7 @@
     <ClCompile Include="src\implementations\controllers\ArdroneController.cpp" />
     <ClCompile Include="src\implementations\controllers\MavrosController.cpp" />
     <ClCompile Include="src\implementations\controllers\OctoArcasController.cpp" />
+    <ClCompile Include="src\implementations\sensors\MavrosSensor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Controller.h" />
@@ -25,6 +26,7 @@
     <ClInclude Include="src\implementations\controllers\OctoArcasController.h" />
     <ClInclude Include="src\implementations\controllers\TestBedController.h" />
     <ClInclude Include="src\implementations\sensors\ImuSimulatorSensor.h" />
+    <ClInclude Include="src\implementations\sensors\MavrosSensor.h" />
     <ClInclude Include="src\implementations\sensors\OpencvCameraSensor.h" />
     <ClInclude Include="src\implementations\sensors\OpencvImageFileSensor.h" />
     <ClInclude Include="src\implementations\sensors\OpencvSensor.h" />
@@ -62,6 +64,9 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>C:\programming\ARdrone-pp\src;$(BOVIL_DIR)/source;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IncludePath>C:\programming\ARdrone-pp\src;$(BOVIL_DIR)/source;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">

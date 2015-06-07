@@ -39,6 +39,9 @@
     <ClCompile Include="src\implementations\controllers\OctoArcasController.cpp">
       <Filter>Source Files\implementations\controllers</Filter>
     </ClCompile>
+    <ClCompile Include="src\implementations\sensors\MavrosSensor.cpp">
+      <Filter>Source Files\implementations\sensors</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Controller.h">
@@ -81,6 +84,9 @@
       <Filter>Source Files\implementations\sensors</Filter>
     </ClInclude>
     <ClInclude Include="src\implementations\sensors\OpencvVideoSensor.h">
+      <Filter>Source Files\implementations\sensors</Filter>
+    </ClInclude>
+    <ClInclude Include="src\implementations\sensors\MavrosSensor.h">
       <Filter>Source Files\implementations\sensors</Filter>
     </ClInclude>
   </ItemGroup>

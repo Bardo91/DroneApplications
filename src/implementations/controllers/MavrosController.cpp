@@ -10,8 +10,6 @@
 
 #include "MavrosController.h"
 
-#include "C:/programming/ec-safemobil/lib/roscpp/clients/roscpp/include/ros/ros.h"	// 666 TODO temporary without internet to load properly
-
 //---------------------------------------------------------------------------------------------------------------------
 void MavrosController::parseAction(const Message& _message){
 
