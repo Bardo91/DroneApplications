@@ -20,11 +20,21 @@
 
 class DroneApplication;
 
+/** Base interface of drone's controller.
+*/
 class Controller{
 public:
+	/** \brief	attach controller to drone's queue. @deprecated 777 need review.
+	*/
 	void set(std::priority_queue<Message, std::vector<Message>, Message> *_msgQueue);
+
+	/** \brief Stop controller.
+	*/
 	void stop();
 
+	/** \brief abstract method that decode messages and apply proper actions.
+	*	@param _message: received message to be decoded.
+	*/
 	virtual void parseAction(const Message& _message) = 0;
 private:
 	std::priority_queue<Message, std::vector<Message>, Message> *mMsgQueue;
