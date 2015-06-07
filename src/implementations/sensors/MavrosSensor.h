@@ -10,7 +10,7 @@
 #ifndef BARTASK_SENSORS_MAVROS_SENSOR_H_
 #define BARTASK_SENSORS_MAVROS_SENSOR_H_
 
-#include "../../SensorManager.h"
+#include "ImuSensor.h"
 
 #if defined(_HAS_ROS_LIBRARIES)
 	#include <ros/ros.h>	// 666 Check includes
@@ -21,14 +21,7 @@
 #include <thread>
 #include <mutex>
 
-struct ImuData{
-	std::array<double, 3> position;
-	std::array<double, 3> orientation;
-};
-
-typedef SensorTrait<SensorType::eIMU, ImuData> MavrosSensorTrait;
-
-class MavrosSensor : public Sensor<MavrosSensorTrait>{
+class MavrosSensor : public ImuSensor{
 public:		//	 Public interface
 	MavrosSensor();
 

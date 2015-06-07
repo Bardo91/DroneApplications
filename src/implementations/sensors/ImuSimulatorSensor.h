@@ -9,7 +9,7 @@
 #ifndef IMU_SIMULATOR_SENSOR_H_
 #define IMU_SIMULATOR_SENSOR_H_
 
-#include "SensorManager.h"
+#include "../../SensorManager.h"
 
 #include <array>
 #include <fstream>
