@@ -26,7 +26,7 @@ typedef SensorTrait<SensorType::eIMU, ImuData> ImuTrait;
 
 class ImuSensor : public Sensor<ImuTrait>{
 public:		// Public Interface
-	ImuSensor();
+	ImuSensor(){};
 	ImuSensor(ImuSensor&) {};
 
 	ImuData get(){

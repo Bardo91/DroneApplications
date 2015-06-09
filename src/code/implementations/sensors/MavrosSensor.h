@@ -27,8 +27,6 @@ class MavrosSensor : public ImuSensor{
 public:		//	 Public interface
 	MavrosSensor();
 
-	ImuData get();
-
 	#if defined(_HAS_ROS_LIBRARIES)
 	private:	// Private methods
 		void imuCallback		(const sensor_msgs::Imu::ConstPtr& _msg);
