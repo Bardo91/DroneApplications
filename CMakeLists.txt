@@ -3,3 +3,7 @@ project(DroneApplications)
 
 # Library Project
 add_subdirectory(src)
+
+# Dependencies
+add_subdirectory(lib/bovil/src)
+add_subdirectory(lib/ardrone-pp/src)
