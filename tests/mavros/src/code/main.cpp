@@ -18,13 +18,20 @@ using namespace std;
 
 int main(int _argc, char** _argv){
 	_argc; _argv;
+	ros::init(_argc, _argv,"MavrosSensorTest");
+	
 	DroneApplication mainApp;
 	
 	MavrosSensor imuSensor;
 	
-	for (;;){
+	ros::Rate loop_rate(10);
+	
+	while(ros::ok()){
 		mainApp.step();
 		ImuData data = imuSensor.get();
+		std::cout << data.mEulerAngles[0] << ", " << data.mEulerAngles[1] << ", " << data.mEulerAngles[2] << std::endl;
+		ros::spinOnce();
+		loop_rate.sleep();
 	}
 
 	//system("PAUSE");
