@@ -27,6 +27,14 @@ if(CMAKE_COMPILER_IS_GNUCXX)
     add_definitions(-std=c++11)
 endif()
 
+find_package(mavros REQUIRED)
+include_directories(${MAVROS_INCLUDE_DIR})
+
+message(STATUS ${MAVROS_INCLUDE_DIR})
+
+## CHECK IF HAS MAVROS
+add_definitions(-D_HAS_ROS_LIBRARIES)
+
 add_executable(test_mavros ${TEST_MAVROS_SOURCE_FILES})
 
 target_include_directories(test_mavros PUBLIC ${PROJECT_SOURCE_DIR}/code)
