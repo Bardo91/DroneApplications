@@ -16,12 +16,11 @@
 MavrosSensor::MavrosSensor(){
 	#if defined(_HAS_ROS_LIBRARIES_)
 		ros::NodeHandle nHandle;
-		std::cout << "Compiles with ros" << std::endl;
 		mAltitudeSubscription	= nHandle.subscribe<sensor_msgs::Imu>("/mavros/imu/data", 0, &MavrosSensor::imuCallback, this);
-		mImuSubscription		= nHandle.subscribe<sensor_msgs::NavSatFix>("/mavros/global_position/global ", 0, &MavrosSensor::positionCallback, this);
-		mPositionSubscription	= nHandle.subscribe<std_msgs::Float64>("/mavros/global_position/rel_alt ", 0, &MavrosSensor::altitudeCallback, this);
+		mImuSubscription		= nHandle.subscribe<sensor_msgs::NavSatFix>("/mavros/global_position/global", 0, &MavrosSensor::positionCallback, this);
+		mPositionSubscription	= nHandle.subscribe<std_msgs::Float64>("/mavros/global_position/rel_alt", 0, &MavrosSensor::altitudeCallback, this);
 	#else
-		std::cout << "Library compiled without ROS dependencies. Mavros Sensor is dummy now" << std::endl;
+		std::cout << "[MAVROS_SENSOR] Library compiled without ROS dependencies. Mavros Sensor is dummy now" << std::endl;
 	#endif
 }
 
