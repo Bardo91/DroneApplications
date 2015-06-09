@@ -1,3 +1,6 @@
 [submodule "lib/bovil"]
 	path = lib/bovil
 	url = https://github.com/Bardo91/bovil.git
+[submodule "lib/ardrone-pp"]
+	path = lib/ardrone-pp
+	url = https://github.com/Bardo91/ardrone-pp
