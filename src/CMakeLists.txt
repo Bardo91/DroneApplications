@@ -30,8 +30,6 @@ endif()
 
 add_library(DroneApplications SHARED ${DRONE_APPLICATIONS_SOURCE_FILES})
 
-message(STATUS ${PROJECT_SOURCE_DIR}../lib/bovil/src/code)
-
 target_include_directories(DroneApplications PUBLIC ${PROJECT_SOURCE_DIR}/code)
 target_include_directories(DroneApplications PUBLIC ${PROJECT_SOURCE_DIR}/../lib/bovil/src/code)
 target_link_libraries(DroneApplications LINK_PUBLIC bovil)
