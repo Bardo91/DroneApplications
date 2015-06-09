@@ -15,7 +15,7 @@
 #include <array>
 #include <mutex>
 
-class ImuData{
+struct ImuData{
 	std::array<double, 3>	mEulerAngles;
 	std::array<double, 2>	mPos;	// latitude and longitude
 	double					mAltitude;
@@ -35,7 +35,7 @@ public:		// Public Interface
 
 	}
 
-private:	//	 Members
+protected:	//	 Members
 	std::mutex	mSecureMutex;
 	ImuData		mLastData;
 };
