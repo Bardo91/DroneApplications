@@ -27,17 +27,23 @@ if(CMAKE_COMPILER_IS_GNUCXX)
     add_definitions(-std=c++11)
 endif()
 
-find_package(mavros REQUIRED)
-include_directories(${MAVROS_INCLUDE_DIR})
-
-message(STATUS ${MAVROS_INCLUDE_DIR})
-
+## Automate adding of ros libs
+set(ROS_INCLUDES /opt/ros/jade/include)
+set(ROS_DEPENDENCIES	/opt/ros/jade/lib/libroscpp.so /opt/ros/jade/lib/libcpp_common.so )
 ## CHECK IF HAS MAVROS
-add_definitions(-D_HAS_ROS_LIBRARIES)
+add_definitions(-D_HAS_ROS_LIBRARIES_)
+
 
 add_executable(test_mavros ${TEST_MAVROS_SOURCE_FILES})
 
 target_include_directories(test_mavros PUBLIC ${PROJECT_SOURCE_DIR}/code)
 target_include_directories(test_mavros PUBLIC ${PROJECT_SOURCE_DIR}/../../../src/code)
-
 target_link_libraries(test_mavros  LINK_PUBLIC DroneApplications)
+
+target_include_directories(test_mavros PUBLIC ${ROS_INCLUDES})
+target_link_libraries(test_mavros  LINK_PUBLIC ${ROS_DEPENDENCIES})
+
+
+
+
+
