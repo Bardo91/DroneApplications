@@ -7,3 +7,6 @@ add_subdirectory(src)
 # Dependencies
 add_subdirectory(lib/bovil/src)
 add_subdirectory(lib/ardrone-pp/src)
+
+# Test cases
+add_subdirectory(tests/mavros/src)
