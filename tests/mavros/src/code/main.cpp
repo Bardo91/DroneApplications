@@ -24,6 +24,7 @@ int main(int _argc, char** _argv){
 	
 	for (;;){
 		mainApp.step();
+		ImuData data = imuSensor.get();
 	}
 
 	//system("PAUSE");
