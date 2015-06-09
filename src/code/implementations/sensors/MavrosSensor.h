@@ -12,11 +12,13 @@
 
 #include "ImuSensor.h"
 
-#if defined(_HAS_ROS_LIBRARIES)
+#define _HAS_ROS_LIBRARIES_
+
+#if defined(_HAS_ROS_LIBRARIES_)
 	#include <ros/ros.h>	// 666 Check includes
 	#include <sensor_msgs/Imu.h>
 	#include <sensor_msgs/NavSatFix.h>
-	#include <std_msgs/Float64>
+	#include <std_msgs/Float64.h>
 #endif
 
 #include <array>
@@ -27,9 +29,9 @@ class MavrosSensor : public ImuSensor{
 public:		//	 Public interface
 	MavrosSensor();
 
-	#if defined(_HAS_ROS_LIBRARIES)
+	#if defined(_HAS_ROS_LIBRARIES_)
 	private:	// Private methods
-		void imuCallback		(const sensor_msgs::Imu::ConstPtr& _msg);
+		void imuCallback	(const sensor_msgs::Imu::ConstPtr& _msg);
 		void positionCallback	(const sensor_msgs::NavSatFix::ConstPtr& _msg);
 		void altitudeCallback	(const std_msgs::Float64::ConstPtr& _msg);
 
