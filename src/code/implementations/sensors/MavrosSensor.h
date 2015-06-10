@@ -37,7 +37,6 @@ public:		//	 Public interface
 
 	private:	// Members
 		std::mutex	mSecureMutex;
-		ImuData		mLastData;
 
 		ros::Subscriber mAltitudeSubscription, mImuSubscription, mPositionSubscription;
 	#endif

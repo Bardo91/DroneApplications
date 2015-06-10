@@ -29,7 +29,7 @@ endif()
 
 ## Automate adding of ros libs
 set(ROS_INCLUDES /opt/ros/jade/include)
-set(ROS_DEPENDENCIES	/opt/ros/jade/lib/libroscpp.so /opt/ros/jade/lib/libcpp_common.so /opt/ros/jade/lib/librostime.so )
+set(ROS_DEPENDENCIES	/opt/ros/jade/lib/libroscpp.so /opt/ros/jade/lib/libcpp_common.so /opt/ros/jade/lib/librostime.so /opt/ros/jade/lib/librosconsole.so /opt/ros/jade/lib/libroscpp_serialization.so )
 ## CHECK IF HAS MAVROS
 add_definitions(-D_HAS_ROS_LIBRARIES_)
 
