@@ -28,7 +28,7 @@ if(CMAKE_COMPILER_IS_GNUCXX)
 endif()
 
 
-add_library(DroneApplications SHARED ${DRONE_APPLICATIONS_SOURCE_FILES})
+add_library(DroneApplications STATIC ${DRONE_APPLICATIONS_SOURCE_FILES})
 
 target_include_directories(DroneApplications PUBLIC ${PROJECT_SOURCE_DIR}/code)
 target_include_directories(DroneApplications PUBLIC ${PROJECT_SOURCE_DIR}/../lib/bovil/src/code)
