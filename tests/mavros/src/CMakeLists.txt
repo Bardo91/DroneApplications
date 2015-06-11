@@ -27,12 +27,14 @@ if(CMAKE_COMPILER_IS_GNUCXX)
     add_definitions(-std=c++11)
 endif()
 
-## Automate adding of ros libs
-set(ROS_INCLUDES /opt/ros/jade/include)
-set(ROS_DEPENDENCIES	/opt/ros/jade/lib/libroscpp.so /opt/ros/jade/lib/libcpp_common.so /opt/ros/jade/lib/librostime.so /opt/ros/jade/lib/librosconsole.so /opt/ros/jade/lib/libroscpp_serialization.so )
-## CHECK IF HAS MAVROS
-add_definitions(-D_HAS_ROS_LIBRARIES_)
 
+## Automate adding of ros libs
+if(UNIX)
+	set(ROS_INCLUDES /opt/ros/jade/include)
+	set(ROS_DEPENDENCIES	/opt/ros/jade/lib/libroscpp.so /opt/ros/jade/lib/libcpp_common.so /opt/ros/jade/lib/librostime.so /opt/ros/jade/lib/librosconsole.so /opt/ros/jade/lib/libroscpp_serialization.so )
+	## CHECK IF HAS MAVROS
+	add_definitions(-D_HAS_ROS_LIBRARIES_)
+endif()
 
 add_executable(test_mavros ${TEST_MAVROS_SOURCE_FILES})
 

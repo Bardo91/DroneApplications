@@ -12,8 +12,6 @@
 
 #include "ImuSensor.h"
 
-#define _HAS_ROS_LIBRARIES_
-
 #if defined(_HAS_ROS_LIBRARIES_)
 	#include <ros/ros.h>	// 666 Check includes
 	#include <sensor_msgs/Imu.h>
