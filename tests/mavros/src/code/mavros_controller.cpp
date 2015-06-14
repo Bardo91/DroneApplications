@@ -18,22 +18,27 @@ using namespace std;
 
 int main(int _argc, char** _argv){
 	_argc; _argv;
-	ros::init(_argc, _argv,"MavrosControllerTest");
+	#if defined(_HAS_ROS_LIBRARIES_)
+		ros::init(_argc, _argv,"MavrosControllerTest");
 	
-	DroneApplication mainApp;
+		DroneApplication mainApp;
 	
-	MavrosController controller;
+		MavrosController controller;
 	
-	ros::Rate loop_rate(10);
+		ros::Rate loop_rate(10);
 	
-	Message msg(8, MessageType::eMove, 1, "");
+		Message msg(8, MessageType::eMove, 1, "");
 	
-	while(ros::ok()){
-		mainApp.step();
-		controller.parseAction(msg);
-		ros::spinOnce();
-		loop_rate.sleep();
-	}
+		while(ros::ok()){
+			mainApp.step();
+			controller.parseAction(msg);
+			ros::spinOnce();
+			loop_rate.sleep();
+		}
+	#else
+		std::cout << "[WARNING] Application compiled without ROS libraries" << std::endl;
+		return -1;
+	#endif
 
 	//system("PAUSE");
 
