@@ -21,7 +21,7 @@
 enum MessageType {
 	eBadMessage = 0x00,
 	eStopExecution = 0x01,
-	eTakeOff = 0xB0, eLanding = 0xB1, ePosition = 0xB2, eMove = 0xB3, eHovering = 0xB4,
+	eTakeOff = 0xB0, eLanding = 0xB1, ePosition = 0xB2, eMove = 0xB3, eHovering = 0xB4, eMoveVel = 0xB5, eMoveGlobal = 0xB6, eMoveLocal = 0xB7,
 	eVisionSensor=0xD0, eLaserSensor=0xD1, eUltrasonicSensor=0xD2
 };
 
