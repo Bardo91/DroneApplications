@@ -12,12 +12,27 @@
 
 #include "../../Controller.h"
 
+#define _HAS_ROS_LIBRARIES_
+
+#if defined(_HAS_ROS_LIBRARIES_)
+	#include <ros/ros.h>	// 666 Check includes
+	#include <geometry_msgs/TwistStamped.h>	// For velocity control
+	#include <geometry_msgs/PoseStamped.h>	// For pose and attitude control
+#endif
+
 class MavrosController :public Controller {
 public:		// Public Interface
+	MavrosController();
 	void parseAction(const Message& _message);
 
+#if defined(_HAS_ROS_LIBRARIES_)
 private:	// Private methods
 
+private:	// Members
+	std::mutex	mSecureMutex;
+
+	ros::Publisher	mVelCmdPub, mPosCmdPub, mAttCmdPub;
+#endif
 
 private:	// Members
 };
