@@ -12,6 +12,8 @@
 
 #include "../../Controller.h"
 
+#define _HAS_ROS_LIBRARIES_
+
 #if defined(_HAS_ROS_LIBRARIES_)
 	#include <ros/ros.h>	// 666 Check includes
 	#include <geometry_msgs/TwistStamped.h>	// For velocity control
@@ -20,6 +22,7 @@
 
 class MavrosController :public Controller {
 public:		// Public Interface
+	MavrosController();
 	void parseAction(const Message& _message);
 
 #if defined(_HAS_ROS_LIBRARIES_)

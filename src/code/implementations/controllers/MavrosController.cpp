@@ -10,12 +10,12 @@
 
 #include "MavrosController.h"
 
-const string cVelCmdTopic;
-const string cPosCmdTopic;
-const string cAttCmdTopic;
+const std::string cVelCmdTopic = "/mavros/setpoint_velocity/cmd_vel";
+const std::string cPosCmdTopic = "/mavros/setpoint_attitude/attitude";
+const std::string cAttCmdTopic = "/mavros/setpoint_position/local";
 
 //---------------------------------------------------------------------------------------------------------------------
-void MavrosController::MavrosController(){
+MavrosController::MavrosController(){
 	#if defined(_HAS_ROS_LIBRARIES_)
 		ros::NodeHandle nHandle;
 		mVelCmdPub = nHandle.advertise<geometry_msgs::TwistStamped>(cVelCmdTopic, 1000);
