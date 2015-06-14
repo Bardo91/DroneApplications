@@ -31,7 +31,7 @@ private:	// Private methods
 private:	// Members
 	std::mutex	mSecureMutex;
 
-	ros::Publisher	mVelCmdPub, mPosCmdPub, mAttCmdPub;
+	ros::Publisher	mVelCmdPub, mPosCmdPub;
 #endif
 
 private:	// Members
