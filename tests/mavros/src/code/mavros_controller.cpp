@@ -27,13 +27,22 @@ int main(int _argc, char** _argv){
 	
 		ros::Rate loop_rate(10);
 	
-		Message msg(8, MessageType::eMove, 1, "");
-	
+
+		Message msg1(23, MessageType::eMoveVel, 1, "1.0,0.0,0.0,0.0,0.0,0.0");	
+		Message msg2(23, MessageType::eMoveVel, 1, "-1.0,0.0,0.0,0.0,0.0,0.0");	
+
+		int counter = 0;
 		while(ros::ok()){
 			mainApp.step();
-			controller.parseAction(msg);
+			if(counter < 200){	// Move ahead
+				controller.parseAction(msg1);
+			}else{	// Move back
+				controller.parseAction(msg2);
+			}
+			
 			ros::spinOnce();
 			loop_rate.sleep();
+			counter = (counter++) % 400;
 		}
 	#else
 		std::cout << "[WARNING] Application compiled without ROS libraries" << std::endl;
