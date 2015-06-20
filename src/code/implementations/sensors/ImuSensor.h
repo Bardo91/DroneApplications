@@ -19,6 +19,7 @@ struct ImuData{
 	std::array<double, 3>	mEulerAngles;
 	std::array<double, 2>	mPos;	// latitude and longitude
 	double					mAltitude;
+	std::array<double, 4>	mQuaternion;
 };
 
 typedef SensorTrait<SensorType::eIMU, ImuData> ImuTrait;

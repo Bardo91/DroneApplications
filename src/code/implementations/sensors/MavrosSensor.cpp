@@ -37,9 +37,11 @@ void MavrosSensor::altitudeCallback	(const std_msgs::Float64::ConstPtr& _msg){
 void MavrosSensor::imuCallback		(const sensor_msgs::Imu::ConstPtr& _msg){
 	std::lock_guard<std::mutex> lock(mSecureMutex);
 	std::array<double,4> q = {_msg->orientation.x, _msg->orientation.y, _msg->orientation.z, _msg->orientation.w};
+	mLastData.mQuaternion = q;
 	mLastData.mEulerAngles[0] = atan2(2*(q[0]*q[1] + q[2]*q[3]), 1-2*(q[1]*q[1] + q[2]*q[2]));
 	mLastData.mEulerAngles[1] = asin(2*(q[0]*q[2] - q[3]*q[1]));
 	mLastData.mEulerAngles[2] = atan2(2*(q[0]*q[3] + q[1]*q[2]), 1-2*(q[2]*q[2] + q[3]*q[3]));;
+	
 }
 
 //---------------------------------------------------------------------------------------------------------------------
