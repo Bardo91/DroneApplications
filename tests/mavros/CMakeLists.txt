@@ -32,8 +32,3 @@ target_link_libraries(mavros_controller  LINK_PUBLIC DroneApplications)
 
 target_include_directories(mavros_controller PUBLIC ${ROS_INCLUDES})
 target_link_libraries(mavros_controller  LINK_PUBLIC ${ROS_DEPENDENCIES})
-
-
-
-
-

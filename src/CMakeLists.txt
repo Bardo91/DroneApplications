@@ -27,6 +27,8 @@ if(CMAKE_COMPILER_IS_GNUCXX)
     add_definitions(-std=c++11)
 endif()
 
+# Find 3rd party packages
+find_package( OpenCV REQUIRED )
 
 add_library(DroneApplications STATIC ${DRONE_APPLICATIONS_SOURCE_FILES})
 
@@ -35,3 +37,4 @@ target_include_directories(DroneApplications PUBLIC ${PROJECT_SOURCE_DIR}/../lib
 target_include_directories(DroneApplications PUBLIC ${PROJECT_SOURCE_DIR}/../lib/ardrone-pp/src/code)
 target_link_libraries(DroneApplications LINK_PUBLIC BOViL)
 target_link_libraries(DroneApplications LINK_PUBLIC ARdronepp)
+target_link_libraries(DroneApplications LINK_PUBLIC ${OpenCV_LIBS} )
