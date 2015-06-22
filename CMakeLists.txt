@@ -9,4 +9,4 @@ add_subdirectory(lib/bovil/src)
 add_subdirectory(lib/ardrone-pp/src)
 
 # Test cases
-add_subdirectory(tests/mavros/src)
+add_subdirectory(tests)
