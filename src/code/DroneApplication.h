@@ -22,6 +22,10 @@
 */
 class DroneApplication{
 public:
+	/// \brief Constructor.
+	///
+	DroneApplication();
+
 	/** \brief add new command to controller's queue.
 	*	@param	_message: message to be added to the queue.
 	*/
