@@ -20,6 +20,14 @@ struct ImuData{
 	std::array<double, 2>	mPos;	// latitude and longitude
 	double					mAltitude;
 	std::array<double, 4>	mQuaternion;
+
+	std::string serialize() {
+		std::stringstream ss;
+		ss <<	"\t Euler: " << mEulerAngles[0] << ", " << mEulerAngles[1] << ", " << mEulerAngles[2] <<
+				"\t Pos: " << mPos[0] << ", " << mPos[1] << ", " << mAltitude <<
+				"\t Quaterion:" << mQuaternion[0] << ", " << mQuaternion[1] << ", " << mQuaternion[2] << ", " << mQuaternion[3] << std::endl;
+		return ss.str();
+	}
 };
 
 typedef SensorTrait<SensorType::eIMU, ImuData> ImuTrait;
@@ -32,8 +40,15 @@ public:		// Public Interface
 
 	ImuData get(){
 		std::lock_guard<std::mutex> lock(mSecureMutex);
+		write2Log(mLastData.serialize());
 		return mLastData;
+	}
 
+protected:
+	void write2Log(std::string _msg) override {
+		std::stringstream ss;
+		ss << "ImuSensor-" << this;
+		DroneLog::get()->write(ss.str(), _msg);
 	}
 
 protected:	//	 Members
