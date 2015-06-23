@@ -25,7 +25,7 @@ struct ImuData{
 		std::stringstream ss;
 		ss <<	"\t Euler: " << mEulerAngles[0] << ", " << mEulerAngles[1] << ", " << mEulerAngles[2] <<
 				"\t Pos: " << mPos[0] << ", " << mPos[1] << ", " << mAltitude <<
-				"\t Quaterion:" << mQuaternion[0] << ", " << mQuaternion[1] << ", " << mQuaternion[2] << ", " << mQuaternion[3] << std::endl;
+				"\t Quaterion:" << mQuaternion[0] << ", " << mQuaternion[1] << ", " << mQuaternion[2] << ", " << mQuaternion[3];
 		return ss.str();
 	}
 };
