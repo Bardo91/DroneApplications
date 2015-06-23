@@ -14,9 +14,8 @@
 
 #include <sstream>
 //---------------------------------------------------------------------------------------------------------------------
-DroneApplication::DroneApplication() {
+DroneApplication::DroneApplication(): Loggeable("DroneApplication") {
 	DroneLog::init();
-
 }
 
 //---------------------------------------------------------------------------------------------------------------------
@@ -65,12 +64,5 @@ void DroneApplication::attachProcess(TaskBase& _task){
 	ss << "Attached new process to application " << &_task;
 	write2Log(ss.str());
 };
-
-//---------------------------------------------------------------------------------------------------------------------
-void DroneApplication::write2Log(std::string _msg) {
-	std::stringstream ss;
-	ss << "DroneApplication-" << this;
-	DroneLog::get()->write(ss.str(), _msg);
-}
 
 //---------------------------------------------------------------------------------------------------------------------

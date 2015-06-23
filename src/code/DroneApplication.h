@@ -13,6 +13,7 @@
 #include "Controller.h"
 #include "Task.h"
 #include "SensorManager.h"
+#include "Loggeable.h"
 
 #include <queue>
 #include <mutex>
@@ -20,7 +21,7 @@
 /**	Main class that holds Drone's application classes.	777 review pipeline.
 *
 */
-class DroneApplication{
+class DroneApplication: private Loggeable{
 public:
 	/// \brief Constructor.
 	///
@@ -49,8 +50,6 @@ public:
 	*	@param _task: task to be added.
 	*/
 	void attachProcess	(TaskBase& _task);
-private:
-	void write2Log(std::string _msg);
 
 private:
 	std::priority_queue<Message, std::vector<Message>, Message>		mQueuedMessages;
