@@ -50,6 +50,9 @@ public:
 	*/
 	void attachProcess	(TaskBase& _task);
 private:
+	void write2Log(std::string _msg);
+
+private:
 	std::priority_queue<Message, std::vector<Message>, Message>		mQueuedMessages;
 	SensorManager	mSensorManager;
 
