@@ -50,7 +50,7 @@ private:
 *
 */
 template<typename SonClass_>
-class Task: private TaskBase{
+class Task: public TaskBase{
 public:
 	/** \brief Task action. Loop is not implemented, task cycle is defined inside this method.
 	*/
