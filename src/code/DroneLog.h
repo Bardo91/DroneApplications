@@ -14,8 +14,6 @@
 #include <mutex>
 #include <string>
 
-#include <core/time/time.h>
-
 /// Log shared through all application.
 ///
 class DroneLog {
