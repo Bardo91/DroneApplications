@@ -28,7 +28,9 @@ public:
 		fileName << mCounter;
 		fileName << mNameTemplate.substr(mNameTemplate.find("%d") + 2, mNameTemplate.npos);
 		mCounter++;
-		return cv::imread(fileName.str());
+		cv::Mat image = cv::imread(fileName.str());
+		write2Log("Getting image. Width: " + std::to_string(image.cols) + ", height: " + std::to_string(image.rows));
+		return image;
 	}
 
 

@@ -27,9 +27,15 @@ public:
 		mMutex.lock();
 		mImage.copyTo(copyImg);
 		mMutex.unlock();
+		write2Log("Getting image. Width: " + std::to_string(copyImg.cols) + ", height: " + std::to_string(copyImg.rows));
 		return copyImg;
 	}
-
+protected:
+	void write2Log(std::string _msg) override {
+		std::stringstream ss;
+		ss << "OpenCV Sensor-" << this;
+		DroneLog::get()->write(ss.str(), _msg);
+	}
 protected:
 	cv::Mat	mImage;
 	std::mutex mMutex;
