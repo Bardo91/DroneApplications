@@ -18,12 +18,17 @@
 #include <thread>
 #include <iostream>
 
+#include "Loggeable.h"
+
 class DroneApplication;
 
 /** Base interface of drone's controller.
 */
-class Controller{
+class Controller: private Loggeable{
 public:
+	/// \brief Constructor
+	Controller();
+
 	/** \brief	attach controller to drone's queue. @deprecated 777 need review.
 	*/
 	void set(std::priority_queue<Message, std::vector<Message>, Message> *_msgQueue);

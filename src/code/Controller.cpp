@@ -8,6 +8,13 @@
 //
 
 #include  "Controller.h"
+
+//---------------------------------------------------------------------------------------------------------------------
+Controller::Controller() : Loggeable("Controller") {
+
+}
+
+//---------------------------------------------------------------------------------------------------------------------
 void Controller::set(std::priority_queue<Message, std::vector<Message>, Message> *_msgQueue){
 	mMsgQueue = _msgQueue;
 	mThread = new std::thread([this](){
@@ -21,8 +28,12 @@ void Controller::set(std::priority_queue<Message, std::vector<Message>, Message>
 		}
 
 	});
+
+	write2Log("Set as controller");
 }
 
+//---------------------------------------------------------------------------------------------------------------------
 void Controller::stop(){
 	mControlling = false;
+	write2Log("Stopping controller");
 }
