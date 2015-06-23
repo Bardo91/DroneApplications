@@ -9,6 +9,13 @@
 
 
 #include "DroneLog.h"
+
+#include <time.h>
+
+//---------------------------------------------------------------------------------------------------------------------
+// Static data initialization.
+DroneLog* DroneLog::mInstance = nullptr;
+
 //---------------------------------------------------------------------------------------------------------------------
 void DroneLog::init() {
 	if (mInstance == nullptr) {
@@ -38,8 +45,9 @@ void DroneLog::write(std::string _tag, std::string _msg) {
 
 //---------------------------------------------------------------------------------------------------------------------
 DroneLog::DroneLog() {
-	double time = BOViL::STime::get()->getTime();
-	std::string logName = "DroneLog_" + std::to_string(time);
+	time_t timer;
+	time(&timer);
+	std::string logName = "DroneLog_" + std::to_string(timer);
 	mLog.open(logName);
 
 }

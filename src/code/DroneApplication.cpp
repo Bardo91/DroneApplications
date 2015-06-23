@@ -25,7 +25,7 @@ void DroneApplication::addCommand(const Message& _message){
 	mQueuedMessages.push(_message);
 	mQueueGuard.unlock();
 
-	write2Log("Added new command to queue. Type: " + _message.type + ", Payload " + _message.payload());
+	//666 write2Log("Added new command to queue. Type: " + _message.type + ", Payload " + _message.payload());
 }
 
 //---------------------------------------------------------------------------------------------------------------------

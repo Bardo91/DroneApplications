@@ -43,6 +43,6 @@ private:
 	std::ofstream		mLog;
 	std::mutex			mSecureMutex;
 
-}
+};
 
 #endif	//	_DRONE_APPLICATIONS_DRONE_LOG_H_
