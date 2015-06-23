@@ -12,6 +12,7 @@
 #define _SENSOR_MANAGER_H_
 
 #include "Message.h"
+#include "Loggeable.h"
 
 #include <cassert>
 #include <iostream>
@@ -54,13 +55,13 @@ private:
 *
 */
 template<typename SensorTrait_>
-class Sensor: public SensorBase{
+class Sensor: public SensorBase, private Loggeable{
 public:
 	typedef SensorTrait_ Trait;
 
 	/** \brief Contructor
 	*/
-	Sensor() :SensorBase(static_cast<SensorType>(Trait::Type)){};
+	Sensor() :SensorBase(static_cast<SensorType>(Trait::Type)), Loggeable("Sensor"){};
 	
 	/** \brief get last sensor's data.
 	*/
