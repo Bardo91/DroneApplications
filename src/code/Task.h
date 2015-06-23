@@ -25,7 +25,7 @@ class DroneApplication;	// Forward declaration
 	*	store tasks multiple types tasks in maps or arrays
 *
 */
-class TaskBase{
+class TaskBase: protected Loggeable{
 public:
 	/** \brief Queue new message to drone's controller queue (777 need revision). 
 	*/
@@ -38,7 +38,7 @@ public:
 
 protected:
 	friend class DroneApplication;
-	TaskBase() {};
+	TaskBase(): Loggeable("Task") {};
 	void	attach(std::priority_queue<Message, std::vector<Message>, Message> *_queue, SensorManager *_sensorMgr) { mDroneQueue = _queue; mSensorManager = _sensorMgr; };
 
 private:
@@ -50,7 +50,7 @@ private:
 *
 */
 template<typename SonClass_>
-class Task: public TaskBase{
+class Task: private TaskBase{
 public:
 	/** \brief Task action. Loop is not implemented, task cycle is defined inside this method.
 	*/
@@ -60,6 +60,7 @@ public:
 	*/
 	void start(){
 		mThread = new std::thread(&SonClass_::run, reinterpret_cast<SonClass_*>(this));
+		write2Log("Starting Task");
 	}
 private:
 	std::thread		*mThread;
