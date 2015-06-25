@@ -19,14 +19,6 @@
 
 bool dropLineIntoBuffer(std::ifstream& _inFile, double* _buffer);
 
-struct ImuData{
-	std::array<double, 3>	mEulerAngles;
-	std::array<double, 3>	mPos;
-	double					mAltitude;
-	std::array<double, 3>	mTargetPos;
-	std::array<double, 3>	mTargetPos2;
-};
-
 typedef SensorTrait<SensorType::eIMU, ImuData> ImuTrait;
 
 class ImuSimulatorSensor : public Sensor<ImuTrait>{
@@ -42,14 +34,6 @@ public:
 		dropLineIntoBuffer(mFile, buffer);
 		
 		mData.mAltitude	= buffer[15]/1000;
-
-		mData.mTargetPos[0] = buffer[1] / 1000;
-		mData.mTargetPos[1] = buffer[2] / 1000;
-		mData.mTargetPos[2] = buffer[3] / 1000;
-
-		mData.mTargetPos2[0] = buffer[7] / 1000;
-		mData.mTargetPos2[1] = buffer[8] / 1000;
-		mData.mTargetPos2[2] = buffer[9] / 1000;
 
 		mData.mPos[0] = buffer[13] / 1000;
 		mData.mPos[1] = buffer[14] / 1000;
