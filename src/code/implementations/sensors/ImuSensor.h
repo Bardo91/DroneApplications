@@ -21,6 +21,10 @@ struct ImuData{
 	double					mAltitude;
 	std::array<double, 4>	mQuaternion;
 
+	ImuData() {
+		memset(this, 0, sizeof(ImuData));
+	}
+
 	std::string serialize() {
 		std::stringstream ss;
 		ss <<	"\t Euler: " << mEulerAngles[0] << ", " << mEulerAngles[1] << ", " << mEulerAngles[2] <<
@@ -35,12 +39,13 @@ typedef SensorTrait<SensorType::eIMU, ImuData> ImuTrait;
 
 class ImuSensor : public Sensor<ImuTrait>{
 public:		// Public Interface
-	ImuSensor(){};
+	ImuSensor(){ };
 	ImuSensor(ImuSensor&) {};
 
 	ImuData get(){
 		std::lock_guard<std::mutex> lock(mSecureMutex);
-		write2Log(mLastData.serialize());
+		if((mLastData.mEulerAngles[0] + mLastData.mPos[0] + mLastData.mAltitude + mLastData.mQuaternion[0]) != 0.0)
+			write2Log(mLastData.serialize());
 		return mLastData;
 	}
 
