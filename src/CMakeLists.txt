@@ -30,11 +30,26 @@ endif()
 # Find 3rd party packages
 find_package( OpenCV REQUIRED )
 
+find_package(catkin COMPONENTS
+	roscpp
+	std_msgs
+	sensor_msgs
+	std_srvs
+	message_generation
+)
+
+if(catkin_FOUND)
+	add_definitions(-D_HAS_ROS_LIBRARIES_)
+endif()
+
+# Library
 add_library(DroneApplications STATIC ${DRONE_APPLICATIONS_SOURCE_FILES})
 
 target_include_directories(DroneApplications PUBLIC ${PROJECT_SOURCE_DIR}/code)
 target_include_directories(DroneApplications PUBLIC ${PROJECT_SOURCE_DIR}/../lib/bovil/src/code)
 target_include_directories(DroneApplications PUBLIC ${PROJECT_SOURCE_DIR}/../lib/ardrone-pp/src/code)
+
 target_link_libraries(DroneApplications LINK_PUBLIC BOViL)
 target_link_libraries(DroneApplications LINK_PUBLIC ARdronepp)
 target_link_libraries(DroneApplications LINK_PUBLIC ${OpenCV_LIBS} )
+target_link_libraries(DroneApplications LINK_PUBLIC ${catkin_LIBRARIES} )
