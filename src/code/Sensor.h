@@ -52,7 +52,4 @@ public:
 	virtual typename Trait::DataType get() = 0;
 };
 
-
-#include "Sensor.inl"
-
 #endif	//	 _DRONEAPPLICATIONS_SENSOR_H_
