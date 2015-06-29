@@ -15,6 +15,8 @@
 #include <array>
 #include <mutex>
 
+#include<cstring>
+
 struct ImuData{
 	std::array<double, 3>	mEulerAngles;
 	std::array<double, 2>	mPos;	// latitude and longitude
