@@ -19,15 +19,21 @@
 class OpencvVideoSensor : public OpencvSensor{
 public:
 	OpencvVideoSensor() :	mCamera("C:/programming/datasets/multiple_bar_manual_test.mp4"), 
+							mIsRunning(true),
 							mNuFrames(unsigned(mCamera.get(CV_CAP_PROP_FRAME_COUNT))),
 							mCurrentFrame(0),
 							mWatchThread(&OpencvVideoSensor::callback, this) {};
 	OpencvVideoSensor(OpencvVideoSensor&){};
-	~OpencvVideoSensor(){ mCamera.release();  /*666 TODO stop thread*/ };
+	~OpencvVideoSensor(){
+		mIsRunning = false;
+		if(mWatchThread.joinable())
+			mWatchThread.join();
+		mCamera.release();
+	};
 
 private:
 	void callback(){
-		for (;;){
+		while(mIsRunning){
 			if (mCurrentFrame > mNuFrames)
 				return;	// 666 Stop callback.
 
@@ -44,6 +50,7 @@ private:
 
 private:
 	cv::VideoCapture	mCamera;
+	bool				mIsRunning;
 	unsigned			mNuFrames;
 	unsigned			mCurrentFrame;
 	std::thread			mWatchThread;

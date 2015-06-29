@@ -18,24 +18,29 @@
 
 class OpencvCameraSensor : public OpencvSensor{
 public:
-	OpencvCameraSensor() : mCamera(0), mWatchThread(&OpencvCameraSensor::callback, this){ };
+	OpencvCameraSensor() : mCamera(0), mIsRunning(true), mWatchThread(&OpencvCameraSensor::callback, this){ };
 	OpencvCameraSensor(OpencvCameraSensor&){};
-	~OpencvCameraSensor(){/*666 TODO stop thread*/ };
+	~OpencvCameraSensor(){
+		mIsRunning = false;
+		if(mWatchThread.joinable())
+			mWatchThread.join();
+		mCamera.release();
+	};
 
 private:
 	void callback(){
-		for (;;){
+		while(mIsRunning){
 			cv::Mat frame;
 			mCamera >> frame;
 			mMutex.lock();
 			frame.copyTo(mImage);
 			mMutex.unlock();
-
 		}
 	}
 
 private:
 	cv::VideoCapture	mCamera;
+	bool				mIsRunning = false;
 	std::thread			mWatchThread;
 };
 
