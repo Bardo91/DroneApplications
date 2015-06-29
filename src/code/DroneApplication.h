@@ -24,8 +24,14 @@
 class DroneApplication: private Loggeable{
 public:
 	/// \brief Constructor.
-	///
 	DroneApplication();
+
+	/// \brief Destructor.
+	~DroneApplication();
+
+
+	/// Stop Application 
+	void stop();
 
 	/** \brief add new command to controller's queue.
 	*	@param	_message: message to be added to the queue.
@@ -54,6 +60,8 @@ public:
 private:
 	std::priority_queue<Message, std::vector<Message>, Message>		mQueuedMessages;
 	SensorManager	mSensorManager;
+	std::vector<TaskBase*> mProcesses;
+
 
 	Controller		*mCurrentController = nullptr;
 

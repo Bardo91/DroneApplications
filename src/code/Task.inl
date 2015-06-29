@@ -15,7 +15,7 @@ SensorClassType_* TaskBase::getSensor(){
 //---------------------------------------------------------------------------------------------------------------------
 template<typename SonClass_>
 void Task<SonClass_>::start(){
-	mThread = new std::thread(&SonClass_::run, reinterpret_cast<SonClass_*>(this));
+	mThread = new std::thread(&Task::callback, this);
 	mIsRunning = true;
 	write2Log("Starting Task");
 }
@@ -23,7 +23,7 @@ void Task<SonClass_>::start(){
 //---------------------------------------------------------------------------------------------------------------------
 template<typename SonClass_>
 void Task<SonClass_>::stop(){
-	mIsRunning = stop;
+	mIsRunning = false;
 	if(mThread->joinable())
 		mThread->join();
 

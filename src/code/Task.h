@@ -35,6 +35,8 @@ public:
 	virtual void start()	= 0;
 	virtual void stop()		= 0;
 
+	bool isRunning();
+
 protected:
 	friend class DroneApplication;
 	TaskBase();
@@ -51,7 +53,7 @@ private:
 //---------------------------------------------------------------------------------------------------------------------
 /// Task interface that implements the thread of the asyncronous tasks. 777 Add example.
 template<typename SonClass_>
-class Task: protected TaskBase{
+class Task: public TaskBase{
 public:
 	/// \brief Task action. Loop is not implemented, task cycle is defined inside this method.
 	virtual void init() = 0;

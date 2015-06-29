@@ -19,6 +19,20 @@ DroneApplication::DroneApplication(): Loggeable("DroneApplication") {
 }
 
 //---------------------------------------------------------------------------------------------------------------------
+DroneApplication::~DroneApplication() {
+	stop();
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+void DroneApplication::stop() {
+	for (TaskBase* task : mProcesses) {
+		if (task->isRunning()) {
+			task->stop();
+		}
+	}
+}
+
+//---------------------------------------------------------------------------------------------------------------------
 void DroneApplication::addCommand(const Message& _message){
 	mQueueGuard.lock();
 	mQueuedMessages.push(_message);
@@ -59,6 +73,7 @@ void DroneApplication::setController(Controller& _controller){
 //---------------------------------------------------------------------------------------------------------------------
 void DroneApplication::attachProcess(TaskBase& _task){ 
 	_task.attach(&mQueuedMessages, &mSensorManager); 
+	mProcesses.push_back(&_task);
 
 	std::stringstream ss;
 	ss << "Attached new process to application " << &_task;
