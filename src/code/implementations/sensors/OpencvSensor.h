@@ -27,8 +27,6 @@ public:
 		mMutex.lock();
 		mImage.copyTo(copyImg);
 		mMutex.unlock();
-		if(copyImg.rows != 0)
-			write2Log("Getting image. Width: " + std::to_string(copyImg.cols) + ", height: " + std::to_string(copyImg.rows));
 		return copyImg;
 	}
 protected:

@@ -44,8 +44,6 @@ public:		// Public Interface
 
 	ImuData get(){
 		std::lock_guard<std::mutex> lock(mSecureMutex);
-		if((mLastData.mEulerAngles[0] + mLastData.mPos[0] + mLastData.mAltitude + mLastData.mQuaternion[0]) != 0.0)
-			write2Log(mLastData.serialize());
 		return mLastData;
 	}
 

@@ -23,7 +23,7 @@ SensorBase* SensorManager::get(SensorType _type){
 	auto iterator = mRegisterdSensors.find(_type);
 	if (iterator == mRegisterdSensors.end()){
 		std::cout << "Error: There isn't any sensor of type: " << static_cast<unsigned>(_type) << " registered." << std::endl;
-		assert(false);
+		return nullptr;
 	}
 
 	return iterator->second;
