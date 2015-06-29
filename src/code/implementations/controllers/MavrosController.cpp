@@ -9,7 +9,7 @@
 
 
 #include "MavrosController.h"
-
+/*
 const std::string cVelCmdTopic = "/mavros/setpoint_velocity/cmd_vel";
 const std::string cPosCmdTopic = "/mavros/setpoint_position/local";
 
@@ -77,3 +77,4 @@ void MavrosController::parseAction(const Message& _message){
 
 
 #endif
+*/
