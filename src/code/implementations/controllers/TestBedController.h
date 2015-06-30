@@ -11,7 +11,7 @@
 #define TEST_BED_CONTROLLER_H_
 
 
-#include "../drone_application/Controller.h"
+#include <core/Controller.h>
 
 class TestBedController : public Controller{
 private:

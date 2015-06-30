@@ -10,7 +10,7 @@
 #ifndef OPENCV_IMAGE_SENSOR_H_
 #define OPENCV_IMAGE_SENSOR_H_
 
-#include "../../SensorManager.h"
+#include <core/SensorManager.h>
 
 #include <opencv2/opencv.hpp>
 #include <mutex>

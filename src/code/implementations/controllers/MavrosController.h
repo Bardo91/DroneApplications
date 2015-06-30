@@ -10,7 +10,7 @@
 #ifndef BARTASK_CONTROLLERS_MAVROS_CONTROLLER_H_
 #define BARTASK_CONTROLLERS_MAVROS_CONTROLLER_H_
 
-#include "../../Controller.h"
+#include <core/Controller.h>
 
 #if defined(_HAS_ROS_LIBRARIES_)
 	#include <ros/ros.h>	// 666 Check includes

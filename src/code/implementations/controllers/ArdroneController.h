@@ -10,7 +10,7 @@
 #ifndef ARDRONE_CONTROLLER_H_
 #define ARDRONE_CONTROLLER_H_
 
-#include "../../Controller.h"
+#include <core/Controller.h>
 #include <drone/Ardrone.h>
 
 class ArdroneController : public Controller{

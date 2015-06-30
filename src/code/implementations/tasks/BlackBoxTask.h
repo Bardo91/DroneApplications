@@ -11,7 +11,7 @@
 #define _DRONEAPPLICATIONS_IMPLEMENTATIONS_TASKS_BLACKBOXTASK_H_
 
 #include <fstream>
-#include <Task.h>
+#include <core/Task.h>
 
 #include <core/time/time.h>
 

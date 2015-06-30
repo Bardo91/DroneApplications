@@ -10,7 +10,7 @@
 #ifndef _DRONE_APPLICATIONS_IMPLEMENTATIONS_SENSORS_IMU_SENSOR_H_
 #define _DRONE_APPLICATIONS_IMPLEMENTATIONS_SENSORS_IMU_SENSOR_H_
 
-#include "../../SensorManager.h"
+#include <core/SensorManager.h>
 
 #include <array>
 #include <mutex>
