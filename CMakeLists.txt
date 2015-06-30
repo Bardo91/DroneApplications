@@ -1,5 +1,6 @@
 cmake_minimum_required (VERSION 2.6)
 project(DroneApplications)
+enable_testing()
 
 # Library Project
 add_subdirectory(src)

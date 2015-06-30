@@ -2,4 +2,4 @@ cmake_minimum_required (VERSION 2.6)
 project(tests)
 
 # Library Project
-add_subdirectory(mavros)
+add_subdirectory(implementations/mavros)
