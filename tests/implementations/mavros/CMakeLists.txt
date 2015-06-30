@@ -16,7 +16,7 @@ if(UNIX)
 endif()
 
 ## Create executable for mavros_sensor test
-add_executable(testMavrosSensor ${PROJECT_SOURCE_DIR}/src/mavros_sensor.cpp)
+add_executable(testMavrosSensor ${PROJECT_SOURCE_DIR}/src/testMavrosSensor.cpp)
 
 target_include_directories(testMavrosSensor PUBLIC ${PROJECT_SOURCE_DIR}/../../../src/code)
 target_include_directories(testMavrosSensor PUBLIC ${ROS_INCLUDES})
@@ -26,7 +26,7 @@ target_link_libraries(testMavrosSensor  LINK_PUBLIC ${ROS_DEPENDENCIES})
 add_test(testMavrosSensorUnit testMavrosSensor)
 
 ## Create executable for mavros_controller test
-add_executable(testMavrosController ${PROJECT_SOURCE_DIR}/src/mavros_controller.cpp)
+add_executable(testMavrosController ${PROJECT_SOURCE_DIR}/src/testMavrosController.cpp)
 
 target_include_directories(testMavrosController PUBLIC ${PROJECT_SOURCE_DIR}/../../../src/code)
 target_include_directories(testMavrosController PUBLIC ${ROS_INCLUDES})

@@ -8,7 +8,7 @@
 // This is the main of the program.This program is an implementation to solve the trouble of catching bars
 // in order to build afterwards structures.
 
-#include <DroneApplication.h>
+#include <core/DroneApplication.h>
 #include <implementations/controllers/MavrosController.h>
 
 #include <iostream>
