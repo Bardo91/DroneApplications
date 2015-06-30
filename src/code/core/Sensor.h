@@ -8,8 +8,8 @@
 //
 
 
-#ifndef _DRONEAPPLICATIONS_SENSOR_H_
-#define _DRONEAPPLICATIONS_SENSOR_H_
+#ifndef _DRONEAPPLICATIONS_CORE_SENSOR_H_
+#define _DRONEAPPLICATIONS_CORE_SENSOR_H_
 
 /// Defined types of sensors supported currently. 777 Review
 
@@ -52,4 +52,4 @@ public:
 	virtual typename Trait::DataType get() = 0;
 };
 
-#endif	//	 _DRONEAPPLICATIONS_SENSOR_H_
+#endif	//	 _DRONEAPPLICATIONS_CORE_SENSOR_H_

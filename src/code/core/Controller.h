@@ -8,8 +8,8 @@
 //
 
 
-#ifndef CONTROLLER_H_
-#define CONTROLLER_H_
+#ifndef _DRONEAPPLICATIONS_CORE_CONTROLLER_H_
+#define _DRONEAPPLICATIONS_CORE_CONTROLLER_H_
 
 #include "Message.h"
 
@@ -50,4 +50,4 @@ private:
 };
 
 
-#endif	//	_CONTROLLER_H_
+#endif	//	_DRONEAPPLICATIONS_CORE_CONTROLLER_H_

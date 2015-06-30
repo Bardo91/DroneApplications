@@ -7,8 +7,8 @@
 //
 
 
-#ifndef _SENSOR_MANAGER_H_
-#define _SENSOR_MANAGER_H_
+#ifndef _DRONEAPPLICATIONS_CORE_SENSORMANAGER_H_
+#define _DRONEAPPLICATIONS_CORE_SENSORMANAGER_H_
 
 #include "Loggeable.h"
 #include "Message.h"
@@ -37,4 +37,4 @@ private:
 
 
 
-#endif	//	_SENSOR_MANAGER_H_
+#endif	//	_DRONEAPPLICATIONS_CORE_SENSORMANAGER_H_

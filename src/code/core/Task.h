@@ -8,8 +8,8 @@
 
 
 
-#ifndef TASK_H_
-#define TASK_H_
+#ifndef _DRONEAPPLICATIONS_CORE_TASK_H_
+#define _DRONEAPPLICATIONS_CORE_TASK_H_
 
 
 #include "Message.h"
@@ -69,4 +69,4 @@ private:
 
 #include "Task.inl"
 
-#endif	//	TASK_H_
+#endif	//	_DRONEAPPLICATIONS_CORE_TASK_H_

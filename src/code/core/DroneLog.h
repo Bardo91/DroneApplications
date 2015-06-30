@@ -7,8 +7,8 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 
-#ifndef _DRONE_APPLICATIONS_DRONE_LOG_H_
-#define _DRONE_APPLICATIONS_DRONE_LOG_H_
+#ifndef _DRONEAPPLICATIONS_CORE_DRONELOG_H_
+#define _DRONEAPPLICATIONS_CORE_DRONELOG_H_
 
 #include <fstream>
 #include <mutex>
@@ -43,4 +43,4 @@ private:
 
 };
 
-#endif	//	_DRONE_APPLICATIONS_DRONE_LOG_H_
+#endif	//	_DRONEAPPLICATIONS_CORE_DRONELOG_H_

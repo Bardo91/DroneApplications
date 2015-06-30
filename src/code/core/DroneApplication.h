@@ -7,8 +7,8 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 
-#ifndef DRONE_APPLICATION_H_
-#define DRONE_APPLICATION_H_
+#ifndef _DRONEAPPLICATIONS_CORE_DRONEAPPLICATION_H_
+#define _DRONEAPPLICATIONS_CORE_DRONEAPPLICATION_H_
 
 #include "Controller.h"
 #include "Task.h"
@@ -68,4 +68,4 @@ private:
 	std::mutex mQueueGuard;
 };
 
-#endif	//	DRONE_APPLICATION_H_
+#endif	//	_DRONEAPPLICATIONS_CORE_DRONEAPPLICATION_H_

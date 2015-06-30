@@ -7,8 +7,8 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 
-#ifndef _MESSAGE_H_
-#define _MESSAGE_H_
+#ifndef _DRONEAPPLICATIONS_CORE_MESSAGE_H_
+#define _DRONEAPPLICATIONS_CORE_MESSAGE_H_
 
 #include <string>
 // Messages:
@@ -73,4 +73,4 @@ private:
 	std::string mPayload;
 };
 
-#endif	//	_MESSAGE_H_
+#endif	//	_DRONEAPPLICATIONS_CORE_MESSAGE_H_
