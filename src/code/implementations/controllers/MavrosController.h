@@ -18,11 +18,11 @@
 	#include <geometry_msgs/PoseStamped.h>	// For pose and attitude control
 #endif
 
-class MavrosController :public Controller {/*
+class MavrosController :public Controller {
 public:		// Public Interface
-	MavrosController();
-	void parseAction(const Message& _message);
-
+	MavrosController(){};
+	void parseAction(const Message& _message){};
+/*
 #if defined(_HAS_ROS_LIBRARIES_)
 private:	// Private methods
 
