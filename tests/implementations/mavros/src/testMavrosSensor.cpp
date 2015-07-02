@@ -16,6 +16,10 @@
 #include <sstream>
 #include <thread>
 
+#include <std_msgs/Float64.h>
+#include <sensor_msgs/Imu.h>
+#include <sensor_msgs/NavSatFix.h>
+
 using namespace std;
 
 #if defined(_HAS_ROS_LIBRARIES_)
@@ -24,15 +28,15 @@ using namespace std;
 	std::thread *publisher;
 	bool publish = true;
 
-	sensor_msgs::Imu imuData;
-	sensor_msgs::Float64 altitude;
-	sensor_msgs::NavSatFix navData;
+	sensor_msgs::Imu	imuData;
+	std_msgs::Float64	altitude;
+	sensor_msgs::NavSatFix	navData;
 
 	void initMockPublishers() {
 		ros::NodeHandle nh;
-		pubImu =nh.advertise<sensor_msgs::Imu>("/mavros/imu/data", 5);
-		pubAlt =nh.advertise<sensor_msgs::Float64>("/mavros/global_position/rel_alt", 5);
-		pubPos =nh.advertise<sensor_msgs::NavSatFix>("/mavros/global_position/global", 5);
+		pubImu =nh.advertise<sensor_msgs::Imu>("/mavros/imu/data", 500);
+		pubAlt =nh.advertise<std_msgs::Float64>("/mavros/global_position/rel_alt", 500);
+		pubPos =nh.advertise<sensor_msgs::NavSatFix>("/mavros/global_position/global", 500);
 
 		altitude.data		= 2.3;
 
@@ -67,9 +71,17 @@ int main(int _argc, char** _argv){
 		DroneApplication mainApp;
 	
 		MavrosSensor imuSensor;
-		ros::spin();
-		BOViL::STime->get().mDelay(3000);
-		ImuData data = imuSensor.get();
+		
+		ImuData data;
+		ros::Rate r(10); // 10 hz
+		do{
+			data = imuSensor.get();
+			ros::spinOnce();
+			r.sleep();
+		}
+		while (ros::ok() && data.mPos[0] != 0.5);
+		
+		
 		
 		// Check position.
 		assert(data.mPos[0] == 0.5);
@@ -91,6 +103,8 @@ int main(int _argc, char** _argv){
 		if (publisher->joinable()) {
 			publisher->join();
 		}
+		
+		
 	#else
 		std::cout << "[WARNING] Application compiled without ROS libraries" << std::endl;
 		return -1;
