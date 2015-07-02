@@ -79,7 +79,7 @@ int main(int _argc, char** _argv){
 			ros::spinOnce();
 			r.sleep();
 		}
-		while (ros::ok() && data.mPos[0] != 0.5);
+		while (ros::ok() && (data.mPos[0] == 0.0 || data.mAltitude == 0.0 || data.mQuaternion[0] == 0.0));
 		
 		
 		
@@ -94,10 +94,10 @@ int main(int _argc, char** _argv){
 		//assert(data.mAltitude == 2.3);
 
 		// Check Quaternions
-		assert(imuData.orientation.x == 0.6);
-		assert(imuData.orientation.y == 0.7);
-		assert(imuData.orientation.z == 0.8);
-		assert(imuData.orientation.w == 0.9);
+		assert(data.mQuaternion[0] == 0.6);
+		assert(data.mQuaternion[1] == 0.7);
+		assert(data.mQuaternion[2] == 0.8);
+		assert(data.mQuaternion[3] == 0.9);
 		
 		publish = false;
 		if (publisher->joinable()) {
