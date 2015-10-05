@@ -37,7 +37,7 @@ public:
 
 		mData.mPos[0] = buffer[13] / 1000;
 		mData.mPos[1] = buffer[14] / 1000;
-		mData.mPos[2] = buffer[15] / 1000;
+		//mData.mPos[2] = buffer[15] / 1000;
 
 		mData.mEulerAngles[0] = buffer[16];
 		mData.mEulerAngles[1] = buffer[17];

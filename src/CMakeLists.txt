@@ -28,7 +28,8 @@ if(CMAKE_COMPILER_IS_GNUCXX)
 endif()
 
 # Find 3rd party packages
-find_package( OpenCV REQUIRED )
+find_package(OpenCV REQUIRED)
+set_target_properties(${OpenCV_LIBS} PROPERTIES MAP_IMPORTED_CONFIG_RELWITHDEBINFO RELEASE)
 
 find_package(catkin COMPONENTS
 	roscpp
@@ -45,11 +46,12 @@ endif()
 # Library
 add_library(DroneApplications STATIC ${DRONE_APPLICATIONS_SOURCE_FILES})
 
+target_include_directories(DroneApplications PUBLIC ${OpenCV_INCLUDE_DIRS})
 target_include_directories(DroneApplications PUBLIC ${PROJECT_SOURCE_DIR}/code)
 target_include_directories(DroneApplications PUBLIC ${PROJECT_SOURCE_DIR}/../lib/bovil/src/code)
 target_include_directories(DroneApplications PUBLIC ${PROJECT_SOURCE_DIR}/../lib/ardrone-pp/src/code)
 
 target_link_libraries(DroneApplications LINK_PUBLIC BOViL)
 target_link_libraries(DroneApplications LINK_PUBLIC ARdronepp)
-target_link_libraries(DroneApplications LINK_PUBLIC ${OpenCV_LIBS} )
+target_link_libraries(DroneApplications LINK_PUBLIC ${OpenCV_LIBS})
 target_link_libraries(DroneApplications LINK_PUBLIC ${catkin_LIBRARIES} )

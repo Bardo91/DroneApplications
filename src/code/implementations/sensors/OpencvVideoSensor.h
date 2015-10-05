@@ -18,7 +18,7 @@
 
 class OpencvVideoSensor : public OpencvSensor{
 public:
-	OpencvVideoSensor() :	mCamera("C:/programming/datasets/multiple_bar_manual_test.mp4"), 
+	OpencvVideoSensor(std::string _videoFile) :	mCamera(_videoFile), 
 							mIsRunning(true),
 							mNuFrames(unsigned(mCamera.get(CV_CAP_PROP_FRAME_COUNT))),
 							mCurrentFrame(0),
@@ -40,6 +40,7 @@ private:
 			mCamera.set(CV_CAP_PROP_POS_FRAMES, mCurrentFrame);
 			cv::Mat frame;
 			mCamera >> frame;
+			//resize(frame, frame, Size(), 0.5,0.5);
 			mCurrentFrame++;
 			mMutex.lock();
 			frame.copyTo(mImage);
