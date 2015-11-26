@@ -23,6 +23,12 @@ struct ImuData{
 	double					mAltitude;
 	std::array<double, 4>	mQuaternion;
 
+	std::array<double, 3>	mAngularSpeed;
+	std::array<double, 3>	mLinearSpeed;
+
+	std::array<double, 3>	mAngularAcc;
+	std::array<double, 3>	mLinearAcc;
+
 	ImuData() {
 		memset(this, 0, sizeof(ImuData));
 	}
@@ -34,6 +40,7 @@ struct ImuData{
 				"\t Quaterion:" << mQuaternion[0] << ", " << mQuaternion[1] << ", " << mQuaternion[2] << ", " << mQuaternion[3];
 		return ss.str();
 	}
+
 };
 
 typedef SensorTrait<SensorType::eIMU, ImuData> ImuTrait;
