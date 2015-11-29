@@ -17,6 +17,7 @@
 	#include <sensor_msgs/Imu.h>
 	#include <sensor_msgs/NavSatFix.h>
 	#include <std_msgs/Float64.h>
+	#include <geometry_msgs/PoseStamped.h>
 #endif
 
 #include <array>
@@ -31,7 +32,7 @@ public:		//	 Public interface
 	private:	// Private methods
 		void imuCallback	(const sensor_msgs::Imu::ConstPtr& _msg);
 		void positionCallback	(const sensor_msgs::NavSatFix::ConstPtr& _msg);
-		void altitudeCallback	(const std_msgs::Float64::ConstPtr& _msg);
+		void altitudeCallback	(const geometry_msgs::PoseStamped::ConstPtr& _msg);
 
 	private:	// Members
 		std::mutex	mSecureMutex;
