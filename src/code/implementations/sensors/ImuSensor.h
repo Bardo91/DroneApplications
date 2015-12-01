@@ -29,6 +29,8 @@ struct ImuData{
 	std::array<double, 3>	mAngularAcc;
 	std::array<double, 3>	mLinearAcc;
 
+	double mTimeSpan;
+
 	ImuData() {
 		memset(this, 0, sizeof(ImuData));
 	}

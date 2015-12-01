@@ -21,7 +21,7 @@ bool dropLineIntoBuffer(std::ifstream& _inFile, double* _buffer);
 
 typedef SensorTrait<SensorType::eIMU, ImuData> ImuTrait;
 
-class ImuSimulatorSensor : public Sensor<ImuTrait>{
+class ImuSimulatorSensor : public ImuSensor{
 public:
 	ImuSimulatorSensor(std::string _fileName) {
 		mFile.open(_fileName);
@@ -32,16 +32,22 @@ public:
 	ImuData get(){
 		double buffer[30];
 		dropLineIntoBuffer(mFile, buffer);
-		
-		mData.mAltitude	= buffer[15]/1000;
+		std::array<double,4> q = {buffer[2], buffer[3], buffer[4], buffer[5]};
+		mData.mEulerAngles[0] = atan2(2*(q[0]*q[1] + q[2]*q[3]), 1-2*(q[1]*q[1] + q[2]*q[2]));
+		mData.mEulerAngles[1] = asin(2*(q[0]*q[2] - q[3]*q[1]));
+		mData.mEulerAngles[2] = atan2(2*(q[0]*q[3] + q[1]*q[2]), 1-2*(q[2]*q[2] + q[3]*q[3]));;
 
-		mData.mPos[0] = buffer[13] / 1000;
-		mData.mPos[1] = buffer[14] / 1000;
-		mData.mPos[2] = buffer[15] / 1000;
+		mData.mAngularSpeed[0] = buffer[12];
+		mData.mAngularSpeed[1] = buffer[13];
+		mData.mAngularSpeed[2] = buffer[14];
 
-		mData.mEulerAngles[0] = buffer[16];
-		mData.mEulerAngles[1] = buffer[17];
-		mData.mEulerAngles[2] = buffer[18];
+		mData.mLinearAcc[0] = buffer[9];
+		mData.mLinearAcc[1] = buffer[10];
+		mData.mLinearAcc[2] = buffer[11];
+
+		mData.mAltitude = buffer[1];
+
+		mData.mTimeSpan = buffer[0];
 
 		return mData;
 	}
