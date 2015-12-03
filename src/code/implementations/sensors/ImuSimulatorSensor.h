@@ -33,6 +33,12 @@ public:
 		double buffer[30];
 		dropLineIntoBuffer(mFile, buffer);
 		std::array<double,4> q = {buffer[2], buffer[3], buffer[4], buffer[5]};
+
+		mData.mQuaternion[0] = q[0];
+		mData.mQuaternion[1] = q[1];
+		mData.mQuaternion[2] = q[2];
+		mData.mQuaternion[3] = q[3];
+
 		mData.mEulerAngles[0] = atan2(2*(q[0]*q[1] + q[2]*q[3]), 1-2*(q[1]*q[1] + q[2]*q[2]));
 		mData.mEulerAngles[1] = asin(2*(q[0]*q[2] - q[3]*q[1]));
 		mData.mEulerAngles[2] = atan2(2*(q[0]*q[3] + q[1]*q[2]), 1-2*(q[2]*q[2] + q[3]*q[3]));;
