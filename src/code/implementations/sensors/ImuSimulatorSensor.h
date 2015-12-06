@@ -51,6 +51,10 @@ public:
 		mData.mLinearAcc[1] = buffer[10];
 		mData.mLinearAcc[2] = buffer[11];
 
+		mData.mPos3d[0] = buffer[18];
+		mData.mPos3d[1] = buffer[19];
+		mData.mPos3d[2] = buffer[20];
+
 		mData.mAltitude = buffer[1];
 
 		mData.mTimeSpan = buffer[0];
