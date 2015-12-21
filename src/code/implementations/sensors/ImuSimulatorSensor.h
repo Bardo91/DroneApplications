@@ -47,9 +47,9 @@ public:
 		mData.mAngularSpeed[1] = buffer[13];
 		mData.mAngularSpeed[2] = buffer[14];
 
-		mData.mLinearAcc[0] = -buffer[9];
-		mData.mLinearAcc[1] = -buffer[10];
-		mData.mLinearAcc[2] = -buffer[11];
+		mData.mLinearAcc[0] = buffer[9];
+		mData.mLinearAcc[1] = buffer[10];
+		mData.mLinearAcc[2] = buffer[11];
 
 		mData.mPos3d[0] = buffer[18];
 		mData.mPos3d[1] = buffer[19];
