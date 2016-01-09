@@ -16,6 +16,7 @@
 #include <iostream>
 #include <mutex>
 #include <thread>
+#include <cmath>
 
 bool dropLineIntoBuffer(std::ifstream& _inFile, double* _buffer);
 
